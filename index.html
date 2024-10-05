@@ -4,8 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #111F29;
+            color: #E7DFAE;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            color: #AB0019;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #FFFFFF;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 30px;
+            font-size: 1.1em;
+            color: #E7DFAE;
+            background-color: #294A61;
+            border: 2px solid #AB0019;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #AB0019;
+            color: #FFFFFF;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bienvenue sur mon Portfolio!</h1>
+    <div class="container">
+        <h1>Bienvenue sur mon Portfolio!</h1>
+        <p>Explorez mes projets et découvrez mon univers créatif.</p>
+        <a href="#" class="btn">Voir mes Projets</a>
+    </div>
 </body>
 </html>
