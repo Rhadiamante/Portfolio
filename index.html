@@ -23,7 +23,7 @@
         .container {
             scroll-snap-type: y mandatory;
             height: 100vh;
-            overflow-y: hidden; /* Désactive le défilement natif, nous allons gérer le scroll avec JS */
+            overflow-y: hidden; /* Désactive le défilement natif */
         }
 
         section {
@@ -153,17 +153,17 @@
     </div>
 
     <script>
-        // Gestion du défilement avec JavaScript pour un défilement "brusque"
+        // Gestion du défilement avec JavaScript pour un défilement fluide entre certaines sections
         const sections = document.querySelectorAll('section');
         let currentSection = 0;
         let isScrolling = false;
 
         // Fonction pour changer de section
-        function scrollToSection(index) {
+        function scrollToSection(index, smooth = false) {
             if (index >= 0 && index < sections.length) {
                 currentSection = index;
                 sections[index].scrollIntoView({
-                    behavior: 'auto', // Changement direct, sans animation douce
+                    behavior: smooth ? 'smooth' : 'auto', // 'smooth' pour la transition douce, 'auto' pour le changement immédiat
                     block: 'start'
                 });
             }
@@ -178,21 +178,22 @@
                 if (currentSection < sections.length - 1) {
                     currentSection++;
                     isScrolling = true;
-                    scrollToSection(currentSection);
+                    // Transition fluide uniquement entre la première et la seconde section
+                    scrollToSection(currentSection, currentSection === 1); // Si la prochaine section est la seconde, faire la transition douce
                 }
             } else {
                 // Scroll vers le haut
                 if (currentSection > 0) {
                     currentSection--;
                     isScrolling = true;
-                    scrollToSection(currentSection);
+                    scrollToSection(currentSection, currentSection === 1); // Transition douce si on retourne à la première section
                 }
             }
 
             // Temps d'attente avant de permettre un autre défilement
             setTimeout(() => {
                 isScrolling = false;
-            }, 500); // 500ms pour éviter un scroll excessivement rapide
+            }, 800); // 800ms pour éviter un scroll excessivement rapide
         });
     </script>
 </body>
