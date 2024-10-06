@@ -17,8 +17,13 @@
             background-color: #111F29;
             color: #E7DFAE;
             height: 100vh;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory; /* Permet le scroll "snap" vertical */
+            overflow: hidden; /* Désactive le scroll natif */
+        }
+
+        .container {
+            scroll-snap-type: y mandatory;
+            height: 100vh;
+            overflow-y: hidden; /* Désactive le défilement natif, nous allons gérer le scroll avec JS */
         }
 
         section {
@@ -28,7 +33,7 @@
             align-items: center;
             flex-direction: column;
             text-align: center;
-            scroll-snap-align: start; /* Chaque section est un point d'accroche pour le scroll */
+            scroll-snap-align: start;
         }
 
         h1 {
@@ -59,7 +64,6 @@
             color: #FFFFFF;
         }
 
-        /* Style du carrousel */
         .carousel {
             display: flex;
             width: 100%;
@@ -108,66 +112,87 @@
 </head>
 
 <body>
-    <!-- Section 1 : Bienvenue -->
-    <section id="welcome">
-        <h1>Bienvenue sur mon Portfolio!</h1>
-        <p>Explorez mes projets et découvrez mon univers créatif.</p>
-        <a href="#carousel" class="btn">Voir mes Projets</a>
-    </section>
+    <div class="container">
+        <!-- Section 1 : Bienvenue -->
+        <section id="welcome">
+            <h1>Bienvenue sur mon Portfolio!</h1>
+            <p>Explorez mes projets et découvrez mon univers créatif.</p>
+            <a href="#carousel" class="btn">Voir mes Projets</a>
+        </section>
 
-    <!-- Section 2 : Carrousel de Projets -->
-    <section id="carousel">
-        <div class="carousel">
-            <button class="carousel-btn prev">&#10094;</button>
-            <div class="carousel-track">
-                <div class="carousel-slide">
-                    <h2>Projet 1</h2>
-                    <img src="https://via.placeholder.com/400x300" alt="Projet 1">
-                    <p>Description du Projet 1</p>
+        <!-- Section 2 : Carrousel de Projets -->
+        <section id="carousel">
+            <div class="carousel">
+                <button class="carousel-btn prev">&#10094;</button>
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <h2>Projet 1</h2>
+                        <img src="https://via.placeholder.com/400x300" alt="Projet 1">
+                        <p>Description du Projet 1</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <h2>Projet 2</h2>
+                        <img src="https://via.placeholder.com/400x300" alt="Projet 2">
+                        <p>Description du Projet 2</p>
+                    </div>
+                    <div class="carousel-slide">
+                        <h2>Projet 3</h2>
+                        <img src="https://via.placeholder.com/400x300" alt="Projet 3">
+                        <p>Description du Projet 3</p>
+                    </div>
                 </div>
-                <div class="carousel-slide">
-                    <h2>Projet 2</h2>
-                    <img src="https://via.placeholder.com/400x300" alt="Projet 2">
-                    <p>Description du Projet 2</p>
-                </div>
-                <div class="carousel-slide">
-                    <h2>Projet 3</h2>
-                    <img src="https://via.placeholder.com/400x300" alt="Projet 3">
-                    <p>Description du Projet 3</p>
-                </div>
+                <button class="carousel-btn next">&#10095;</button>
             </div>
-            <button class="carousel-btn next">&#10095;</button>
-        </div>
-    </section>
+        </section>
 
-    <!-- Section 3 : Contact -->
-    <section id="contact">
-        <h1>Me Contacter</h1>
-        <p>N'hésitez pas à me contacter pour discuter de vos projets.</p>
-    </section>
+        <!-- Section 3 : Contact -->
+        <section id="contact">
+            <h1>Me Contacter</h1>
+            <p>N'hésitez pas à me contacter pour discuter de vos projets.</p>
+        </section>
+    </div>
 
     <script>
-        // Fonctionnalité du carrousel
-        const track = document.querySelector('.carousel-track');
-        const slides = Array.from(track.children);
-        const nextButton = document.querySelector('.carousel-btn.next');
-        const prevButton = document.querySelector('.carousel-btn.prev');
-        let currentSlide = 0;
+        // Gestion du défilement avec JavaScript pour un défilement "brusque"
+        const sections = document.querySelectorAll('section');
+        let currentSection = 0;
+        let isScrolling = false;
 
-        function goToSlide(index) {
-            track.style.transform = 'translateX(-' + index * 100 + '%)';
+        // Fonction pour changer de section
+        function scrollToSection(index) {
+            if (index >= 0 && index < sections.length) {
+                currentSection = index;
+                sections[index].scrollIntoView({
+                    behavior: 'auto', // Changement direct, sans animation douce
+                    block: 'start'
+                });
+            }
         }
 
-        // Next slide event
-        nextButton.addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            goToSlide(currentSlide);
-        });
+        // Détection du défilement
+        window.addEventListener('wheel', (event) => {
+            if (isScrolling) return; // Empêche le changement de section trop rapide
 
-        // Previous slide event
-        prevButton.addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            goToSlide(currentSlide);
+            if (event.deltaY > 0) {
+                // Scroll vers le bas
+                if (currentSection < sections.length - 1) {
+                    currentSection++;
+                    isScrolling = true;
+                    scrollToSection(currentSection);
+                }
+            } else {
+                // Scroll vers le haut
+                if (currentSection > 0) {
+                    currentSection--;
+                    isScrolling = true;
+                    scrollToSection(currentSection);
+                }
+            }
+
+            // Temps d'attente avant de permettre un autre défilement
+            setTimeout(() => {
+                isScrolling = false;
+            }, 500); // 500ms pour éviter un scroll excessivement rapide
         });
     </script>
 </body>
