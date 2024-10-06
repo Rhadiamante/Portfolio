@@ -10,27 +10,35 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             background-color: #111F29;
-            color: #111F29;
+            color: #E7DFAE;
             font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        section {
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-        }
-        .container {
             text-align: center;
+            flex-direction: column;
+            transition: transform 0.5s ease;
         }
+
         h1 {
             font-size: 3em;
             color: #FFFFFF;
             margin-bottom: 20px;
         }
+
         p {
             font-size: 1.2em;
             color: #FFFFFF;
         }
+
         .btn {
             display: inline-block;
             padding: 10px 20px;
@@ -42,17 +50,132 @@
             border-radius: 5px;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         .btn:hover {
-            background-color: #E7DFBC;
-            color: #111F29;
+            background-color: #AB0019;
+            color: #FFFFFF;
+        }
+
+        .carousel {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .carousel-slide img {
+            max-width: 80%;
+            max-height: 70%;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #E7DFAE;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
+    <!-- Section 1 : Bienvenue -->
+    <section id="welcome">
         <h1>Bienvenue sur mon Portfolio!</h1>
         <p>Explorez mes projets et découvrez mon univers créatif.</p>
-        <a href="#" class="btn">Voir mes Projets</a>
-    </div>
+        <a href="#carousel" class="btn">Voir mes Projets</a>
+    </section>
+
+    <!-- Section 2 : Carrousel de Projets -->
+    <section id="carousel">
+        <div class="carousel">
+            <button class="carousel-btn prev">&#10094;</button>
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <h2>Projet 1</h2>
+                    <img src="https://via.placeholder.com/400x300" alt="Projet 1">
+                    <p>Description du Projet 1</p>
+                </div>
+                <div class="carousel-slide">
+                    <h2>Projet 2</h2>
+                    <img src="https://via.placeholder.com/400x300" alt="Projet 2">
+                    <p>Description du Projet 2</p>
+                </div>
+                <div class="carousel-slide">
+                    <h2>Projet 3</h2>
+                    <img src="https://via.placeholder.com/400x300" alt="Projet 3">
+                    <p>Description du Projet 3</p>
+                </div>
+            </div>
+            <button class="carousel-btn next">&#10095;</button>
+        </div>
+    </section>
+
+    <script>
+        // Pour faire en sorte que le défilement amène à la section suivante d'un coup
+        document.addEventListener('wheel', function(event) {
+            const welcomeSection = document.querySelector('#welcome');
+            const carouselSection = document.querySelector('#carousel');
+            const scrollDirection = event.deltaY;
+
+            // Si on défile vers le bas et qu'on est sur la section bienvenue
+            if (scrollDirection > 0 && window.scrollY === 0) {
+                carouselSection.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Si on veut scroller vers le haut depuis le carrousel pour revenir à l'accueil
+            if (scrollDirection < 0 && window.scrollY > 0) {
+                welcomeSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Fonctionnalité du carrousel
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector('.carousel-btn.next');
+        const prevButton = document.querySelector('.carousel-btn.prev');
+        let currentSlide = 0;
+
+        function goToSlide(index) {
+            track.style.transform = 'translateX(-' + index * 100 + '%)';
+        }
+
+        // Next slide event
+        nextButton.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            goToSlide(currentSlide);
+        });
+
+        // Previous slide event
+        prevButton.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            goToSlide(currentSlide);
+        });
+    </script>
 </body>
 </html>
