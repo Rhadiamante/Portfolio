@@ -178,15 +178,15 @@
                 if (currentSection < sections.length - 1) {
                     currentSection++;
                     isScrolling = true;
-                    // Transition fluide uniquement entre la première et la seconde section
-                    scrollToSection(currentSection, currentSection === 1); // Si la prochaine section est la seconde, faire la transition douce
+                    // Transition fluide entre la première et la seconde section ou entre la seconde et la troisième
+                    scrollToSection(currentSection, currentSection === 1 || currentSection === 2); // Fluide entre la 1ère-2ème et 2ème-3ème
                 }
             } else {
                 // Scroll vers le haut
                 if (currentSection > 0) {
                     currentSection--;
                     isScrolling = true;
-                    scrollToSection(currentSection, currentSection === 1); // Transition douce si on retourne à la première section
+                    scrollToSection(currentSection, currentSection === 1 || currentSection === 2); // Fluide entre la 3ème-2ème et 2ème-1ère
                 }
             }
 
