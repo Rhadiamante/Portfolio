@@ -186,7 +186,8 @@
                 if (currentSection > 0) {
                     currentSection--;
                     isScrolling = true;
-                    scrollToSection(currentSection, currentSection === 1 || currentSection === 2); // Fluide entre la 3ème-2ème et 2ème-1ère
+                    // Transition fluide dans les deux sens pour les sections 1-2 et 2-3
+                    scrollToSection(currentSection, currentSection === 1 || currentSection === 2); // Fluide entre la 2ème-1ère et 3ème-2ème
                 }
             }
 
