@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
+    <title>Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -23,7 +23,7 @@
         .container {
             scroll-snap-type: y mandatory;
             height: 100vh;
-            overflow-y: hidden;
+            overflow-y: auto;
         }
 
         section {
@@ -48,25 +48,19 @@
             color: #FFFFFF;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 30px;
-            font-size: 1.1em;
-            color: #111F29;
-            background-color: #E7DFAE;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #AB0019;
-            color: #FFFFFF;
+        .image-placeholder {
+            width: 300px;
+            height: 200px;
+            background-color: #294A61;
+            border-radius: 10px;
+            margin-top: 20px;
         }
 
         .carousel {
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: 100%;
             overflow: hidden;
             position: relative;
@@ -110,7 +104,6 @@
             right: 10px;
         }
 
-        /* Styles des flèches de navigation */
         .arrow {
             position: absolute;
             width: 100%;
@@ -122,43 +115,30 @@
             transition: background 0.3s ease;
         }
 
-        .arrow.up {
-            top: 0;
-            background: linear-gradient(to top, rgba(17, 31, 41, 0.9) 10%, transparent 90%); /* Dégradé sombre au bord supérieur */
-        }
-
         .arrow.down {
             bottom: 0;
-            background: linear-gradient(to bottom, rgba(17, 31, 41, 0.9) 10%, transparent 90%); /* Dégradé sombre au bord inférieur */
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+        }
+
+        .arrow.up {
+            top: 0;
+            background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
         }
 
         .arrow span {
             color: #FFFFFF;
             font-size: 2rem;
-            z-index: 1;
         }
 
-        .arrow::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent, rgba(0, 0, 0, 0.1)); /* Dégradé horizontal très discret */
-            z-index: 0;
+        #contact a {
+            color: #E7DFAE;
+            text-decoration: none;
         }
 
-        /* Effet au hover pour éclaircir légèrement le fondu */
-        .arrow:hover {
-            background: linear-gradient(to bottom, rgba(17, 31, 41, 0.7) 10%, transparent 90%);
+        #contact a:hover {
+            color: #FFFFFF;
         }
 
-        .arrow.up:hover {
-            background: linear-gradient(to top, rgba(17, 31, 41, 0.7) 10%, transparent 90%);
-        }
-
-        .arrow.down:hover {
-            background: linear-gradient(to bottom, rgba(17, 31, 41, 0.7) 10%, transparent 90%);
-        }
     </style>
 </head>
 
@@ -167,8 +147,10 @@
         <!-- Section 1 : Bienvenue -->
         <section id="welcome">
             <h1>Bienvenue sur mon Portfolio!</h1>
-            <p>Explorez mes projets et découvrez mon univers créatif.</p>
-            <a href="#carousel" class="btn">Voir mes Projets</a>
+            <!-- Placeholder pour l'image de la page d'accueil -->
+            <div class="image-placeholder"></div>
+            <!-- Le bouton est masqué pour le moment -->
+            <a href="#carousel" class="btn" style="display: none;">Voir mes Projets</a>
             <div class="arrow down" onclick="scrollToNext()">
                 <span>&#x25BC;</span> <!-- Flèche vers le bas -->
             </div>
@@ -181,18 +163,24 @@
                 <div class="carousel-track">
                     <div class="carousel-slide">
                         <h2>Projet 1</h2>
-                        <img src="https://via.placeholder.com/400x300" alt="Projet 1">
-                        <p>Description du Projet 1</p>
+                        <a href="projet1.html">
+                            <img src="https://via.placeholder.com/400x300" alt="Projet 1">
+                            <p>Découvrez mon projet 1</p>
+                        </a>
                     </div>
                     <div class="carousel-slide">
                         <h2>Projet 2</h2>
-                        <img src="https://via.placeholder.com/400x300" alt="Projet 2">
-                        <p>Description du Projet 2</p>
+                        <a href="projet2.html">
+                            <img src="https://via.placeholder.com/400x300" alt="Projet 2">
+                            <p>Découvrez mon projet 2</p>
+                        </a>
                     </div>
                     <div class="carousel-slide">
                         <h2>Projet 3</h2>
-                        <img src="https://via.placeholder.com/400x300" alt="Projet 3">
-                        <p>Description du Projet 3</p>
+                        <a href="projet3.html">
+                            <img src="https://via.placeholder.com/400x300" alt="Projet 3">
+                            <p>Découvrez mon projet 3</p>
+                        </a>
                     </div>
                 </div>
                 <button class="carousel-btn next">&#10095;</button>
@@ -208,7 +196,9 @@
         <!-- Section 3 : Contact -->
         <section id="contact">
             <h1>Me Contacter</h1>
-            <p>N'hésitez pas à me contacter pour discuter de vos projets.</p>
+            <p>Email : <a href="mailto:example@example.com">example@example.com</a></p>
+            <p>Téléphone : <a href="tel:+1234567890">+123 456 7890</a></p>
+            <p>LinkedIn : <a href="https://www.linkedin.com/in/example" target="_blank">Mon Profil LinkedIn</a></p>
             <div class="arrow up" onclick="scrollToPrevious()">
                 <span>&#x25B2;</span> <!-- Flèche vers le haut -->
             </div>
@@ -216,12 +206,10 @@
     </div>
 
     <script>
-        // Gestion du défilement
         const sections = document.querySelectorAll('section');
         let currentSection = 0;
         let isScrolling = false;
 
-        // Fonction pour changer de section
         function scrollToSection(index, smooth = false) {
             if (index >= 0 && index < sections.length) {
                 currentSection = index;
@@ -232,7 +220,6 @@
             }
         }
 
-        // Défilement avec la flèche vers la section suivante
         function scrollToNext() {
             if (currentSection < sections.length - 1 && !isScrolling) {
                 currentSection++;
@@ -242,7 +229,6 @@
             }
         }
 
-        // Défilement avec la flèche vers la section précédente
         function scrollToPrevious() {
             if (currentSection > 0 && !isScrolling) {
                 currentSection--;
@@ -252,7 +238,6 @@
             }
         }
 
-        // Détection du défilement (vers le haut/bas)
         window.addEventListener('wheel', (event) => {
             if (isScrolling) return;
             if (event.deltaY > 0) {
