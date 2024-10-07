@@ -113,30 +113,29 @@
         /* Styles des flèches de navigation */
         .arrow {
             position: absolute;
-            width: 100%; /* Largeur totale de l'écran */
-            height: 80px; /* Hauteur de la zone de la flèche */
+            width: 100%;
+            height: 80px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6)); /* Dégradé prononcé */
-            transition: background 0.3s ease; /* Transition douce pour le hover */
+            transition: background 0.3s ease;
         }
 
         .arrow.up {
             top: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent); /* Dégradé vers le haut */
+            background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)); /* Dégradé inversé vers le haut */
         }
 
         .arrow.down {
             bottom: 0;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent); /* Dégradé vers le bas */
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)); /* Dégradé inversé vers le bas */
         }
 
         .arrow span {
             color: #FFFFFF;
             font-size: 2rem;
-            z-index: 1; /* Pour que la flèche soit au-dessus du dégradé */
+            z-index: 1;
         }
 
         .arrow::before {
@@ -144,21 +143,21 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent, rgba(0, 0, 0, 0.6)); /* Dégradé horizontal prononcé */
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.2), transparent, rgba(0, 0, 0, 0.2)); /* Dégradé horizontal discret */
             z-index: 0;
         }
 
         /* Effet au hover pour éclaircir légèrement le fondu */
         .arrow:hover {
-            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4)); /* Dégradé plus léger au hover */
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.4)); /* Dégradé plus clair */
         }
 
         .arrow.up:hover {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent); /* Version plus claire pour le haut */
+            background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.4)); /* Inversé au hover */
         }
 
         .arrow.down:hover {
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent); /* Version plus claire pour le bas */
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.4)); /* Inversé au hover */
         }
     </style>
 </head>
@@ -239,7 +238,7 @@
                 currentSection++;
                 isScrolling = true;
                 scrollToSection(currentSection, true);
-                setTimeout(() => { isScrolling = false; }, 800);
+                setTimeout(() => { isScrolling = false; }, 1000);
             }
         }
 
@@ -249,7 +248,7 @@
                 currentSection--;
                 isScrolling = true;
                 scrollToSection(currentSection, true);
-                setTimeout(() => { isScrolling = false; }, 800);
+                setTimeout(() => { isScrolling = false; }, 1000);
             }
         }
 
