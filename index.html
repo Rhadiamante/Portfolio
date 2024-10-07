@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Portfolio - Gwëndal Favrel</title>
     <style>
         * {
             margin: 0;
@@ -31,29 +31,59 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             text-align: center;
             scroll-snap-align: start;
             position: relative;
         }
 
-        h1 {
-            font-size: 3em;
+        /* Section 1 styles */
+        #welcome {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #welcome .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+        }
+
+        #welcome .image-container {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #welcome .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        #welcome .text-container {
+            width: 50%;
+            text-align: left;
+        }
+
+        #welcome h1 {
+            font-size: 3.5em;
             color: #FFFFFF;
             margin-bottom: 20px;
         }
 
-        p {
-            font-size: 1.2em;
-            color: #FFFFFF;
+        #welcome h2 {
+            font-size: 2em;
+            color: #E7DFAE;
+            margin-bottom: 20px;
         }
 
-        .image-placeholder {
-            width: 300px;
-            height: 200px;
-            background-color: #294A61;
-            border-radius: 10px;
-            margin-top: 20px;
+        #welcome p {
+            font-size: 1.2em;
+            color: #FFFFFF;
+            line-height: 1.5;
         }
 
         .carousel {
@@ -146,11 +176,20 @@
     <div class="container">
         <!-- Section 1 : Bienvenue -->
         <section id="welcome">
-            <h1>Bienvenue sur mon Portfolio!</h1>
-            <!-- Placeholder pour l'image de la page d'accueil -->
-            <div class="image-placeholder"></div>
-            <!-- Le bouton est masqué pour le moment -->
-            <a href="#carousel" class="btn" style="display: none;">Voir mes Projets</a>
+            <div class="content">
+                <!-- Placeholder pour l'image sur le côté gauche -->
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/300x400" alt="Votre Photo">
+                </div>
+
+                <!-- Texte à droite de l'image -->
+                <div class="text-container">
+                    <h1>Gwëndal Favrel</h1>
+                    <h2>Étudiant Ingénieur Interactions Personne Système</h2>
+                    <p>Je suis un étudiant passionné par la conception et le développement de systèmes interactifs,
+                        cherchant à créer des interfaces qui connectent efficacement l'humain et la technologie.</p>
+                </div>
+            </div>
             <div class="arrow down" onclick="scrollToNext()">
                 <span>&#x25BC;</span> <!-- Flèche vers le bas -->
             </div>
