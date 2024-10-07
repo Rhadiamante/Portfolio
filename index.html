@@ -113,30 +113,38 @@
         /* Styles des flèches de navigation */
         .arrow {
             position: absolute;
-            width: 50px;
-            height: 50px;
-            color: #FFFFFF;
-            font-size: 2rem;
+            width: 100%; /* Largeur totale de l'écran */
+            height: 80px; /* Hauteur de la zone de la flèche */
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); /* Dégradé pour fondre dans l'arrière-plan */
-            border-radius: 50%;
-            transition: background 0.3s ease;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8)); /* Dégradé pour fondre dans l'arrière-plan */
         }
 
         .arrow.up {
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(rgba(0, 0, 0, 0.8), transparent); /* Dégradé pour la flèche vers le haut */
+            top: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent); /* Dégradé vers le haut */
         }
 
         .arrow.down {
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent); /* Dégradé vers le bas */
+        }
+
+        .arrow span {
+            color: #FFFFFF;
+            font-size: 2rem;
+            z-index: 1; /* Pour que la flèche soit au-dessus du dégradé */
+        }
+
+        .arrow::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent, rgba(0, 0, 0, 0.8)); /* Dégradé horizontal */
+            z-index: 0;
         }
 
         .arrow:hover {
@@ -152,7 +160,9 @@
             <h1>Bienvenue sur mon Portfolio!</h1>
             <p>Explorez mes projets et découvrez mon univers créatif.</p>
             <a href="#carousel" class="btn">Voir mes Projets</a>
-            <div class="arrow down" onclick="scrollToNext()">&#x25BC;</div> <!-- Flèche vers le bas -->
+            <div class="arrow down" onclick="scrollToNext()">
+                <span>&#x25BC;</span> <!-- Flèche vers le bas -->
+            </div>
         </section>
 
         <!-- Section 2 : Carrousel de Projets -->
@@ -178,15 +188,21 @@
                 </div>
                 <button class="carousel-btn next">&#10095;</button>
             </div>
-            <div class="arrow up" onclick="scrollToPrevious()">&#x25B2;</div> <!-- Flèche vers le haut -->
-            <div class="arrow down" onclick="scrollToNext()">&#x25BC;</div> <!-- Flèche vers le bas -->
+            <div class="arrow up" onclick="scrollToPrevious()">
+                <span>&#x25B2;</span> <!-- Flèche vers le haut -->
+            </div>
+            <div class="arrow down" onclick="scrollToNext()">
+                <span>&#x25BC;</span> <!-- Flèche vers le bas -->
+            </div>
         </section>
 
         <!-- Section 3 : Contact -->
         <section id="contact">
             <h1>Me Contacter</h1>
             <p>N'hésitez pas à me contacter pour discuter de vos projets.</p>
-            <div class="arrow up" onclick="scrollToPrevious()">&#x25B2;</div> <!-- Flèche vers le haut -->
+            <div class="arrow up" onclick="scrollToPrevious()">
+                <span>&#x25B2;</span> <!-- Flèche vers le haut -->
+            </div>
         </section>
     </div>
 
