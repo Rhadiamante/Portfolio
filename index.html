@@ -169,15 +169,16 @@
 
         #contact h1 {
             font-size: 2.5em;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
             color: #FFFFFF;
+            text-align: center;
         }
 
         .contact-items {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
 
         .contact-item {
@@ -205,7 +206,7 @@
 
         .contact-linkedin {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 50px;
         }
 
         .contact-linkedin a {
@@ -280,7 +281,8 @@
         <!-- Section 3 : Contact -->
         <section id="contact">
             <h1>Me Contacter</h1>
-            <!-- Email et Téléphone symétriques -->
+
+            <!-- Email et Téléphone centrés -->
             <div class="contact-items">
                 <div class="contact-item">
                     <div class="icon">✉️</div>
@@ -291,6 +293,7 @@
                     <a href="tel:+1234567890">+123 456 7890</a>
                 </div>
             </div>
+
             <!-- Lien LinkedIn centré en dessous -->
             <div class="contact-linkedin">
                 <a href="https://www.linkedin.com/in/example" target="_blank">Mon Profil LinkedIn</a>
@@ -307,7 +310,7 @@
         let currentSection = 0;
         let isScrolling = false;
 
-        function scrollToSection(index, smooth = false) {
+        function scrollToSection(index, smooth = true) {
             if (index >= 0 && index < sections.length) {
                 currentSection = index;
                 sections[index].scrollIntoView({
