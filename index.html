@@ -171,42 +171,32 @@
             font-size: 2.5em;
             margin-bottom: 50px;
             color: #FFFFFF;
+        }
+
+        /* Table layout for contact items */
+        .contact-table {
+            margin: 0 auto;
+            width: 80%;
             text-align: center;
         }
 
-        .contact-items {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 50px;
+        .contact-table td {
+            padding: 20px;
         }
 
-        .contact-item {
-            width: 200px;
-            margin: 0 50px;
-            text-align: center;
-        }
-
-        .contact-item a {
+        .contact-table a {
             color: #E7DFAE;
             text-decoration: none;
             font-size: 1.2em;
-            display: block;
-            margin-bottom: 10px;
         }
 
-        .contact-item a:hover {
+        .contact-table a:hover {
             color: #FFFFFF;
         }
 
-        .contact-item .icon {
+        .contact-table .icon {
             font-size: 2.5em;
             margin-bottom: 10px;
-        }
-
-        .contact-linkedin {
-            text-align: center;
-            margin-top: 50px;
         }
 
         .contact-linkedin a {
@@ -218,6 +208,7 @@
         .contact-linkedin a:hover {
             color: #FFFFFF;
         }
+
     </style>
 </head>
 
@@ -282,22 +273,26 @@
         <section id="contact">
             <h1>Me Contacter</h1>
 
-            <!-- Email et Téléphone centrés -->
-            <div class="contact-items">
-                <div class="contact-item">
-                    <div class="icon">✉️</div>
-                    <a href="mailto:example@example.com">example@example.com</a>
-                </div>
-                <div class="contact-item">
-                    <div class="icon">📞</div>
-                    <a href="tel:+1234567890">+123 456 7890</a>
-                </div>
-            </div>
-
-            <!-- Lien LinkedIn centré en dessous -->
-            <div class="contact-linkedin">
-                <a href="https://www.linkedin.com/in/example" target="_blank">Mon Profil LinkedIn</a>
-            </div>
+            <!-- Table layout for contact details -->
+            <table class="contact-table">
+                <tr>
+                    <td>
+                        <div class="icon">✉️</div>
+                        <a href="mailto:example@example.com">example@example.com</a>
+                    </td>
+                    <td>
+                        <div class="icon">📞</div>
+                        <a href="tel:+1234567890">+123 456 7890</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;">
+                        <div class="contact-linkedin">
+                            <a href="https://www.linkedin.com/in/example" target="_blank">Mon Profil LinkedIn</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
 
             <div class="arrow up" onclick="scrollToPrevious()">
                 <span>&#x25B2;</span>
