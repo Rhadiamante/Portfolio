@@ -18,6 +18,8 @@
             color: #E7DFAE;
             height: 100vh;
             overflow: hidden;
+            overflow: hidden; /* Prevent scrolling due to stars */
+            position: relative; /* Position relative for absolute children */
         }
 
         .container {
@@ -228,6 +230,24 @@
             margin-top: 30px;
         }
 
+        .star {
+            position: absolute;
+            background-color: #E7DFAE; /* Color of the stars */
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
 
     </style>
 </head>
