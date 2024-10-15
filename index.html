@@ -167,6 +167,10 @@
             text-align: center;
             padding: 50px;
             color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
         }
 
         #contact h1 {
@@ -174,19 +178,28 @@
             margin-bottom: 30px;
         }
 
-        /* Flexbox layout for contact items */
-        .contact-container {
+        /* Flexbox layout for the rows */
+        .row {
             display: flex;
-            flex-direction: column;  /* Arrange items vertically */
-            align-items: center;  /* Center items */
-            gap: 40px; /* Space between each contact item */
+            justify-content: center;
+            gap: 50px; /* Space between the two columns in the second row */
+            align-items: center;
         }
 
-        .contact-item {
+        .linkedin-row {
             display: flex;
-            flex-direction: column;  /* Stack icon and link vertically */
+            flex-direction: column;
             align-items: center;
-            gap: 10px; /* Space between icon and text */
+            gap: 10px;
+            margin-top: 40px; /* Space between row 2 and LinkedIn */
+        }
+
+        /* Columns for phone and email */
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
 
         .contact-item a {
@@ -202,6 +215,11 @@
         .contact-icon {
             width: 50px;
             height: 50px;
+        }
+
+        /* Adjust arrow style */
+        .arrow {
+            margin-top: 30px;
         }
 
     </style>
