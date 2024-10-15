@@ -17,217 +17,8 @@
             background-color: #111F29;
             color: #E7DFAE;
             height: 100vh;
-            overflow: hidden;
             overflow: hidden; /* Prevent scrolling due to stars */
             position: relative; /* Position relative for absolute children */
-        }
-
-        .container {
-            scroll-snap-type: y mandatory;
-            height: 100vh;
-            overflow-y: auto;
-        }
-
-        section {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            scroll-snap-align: start;
-            position: relative;
-        }
-
-        /* Section 1 styles */
-        #welcome {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #welcome .content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 80%;
-        }
-
-        #welcome .image-container {
-            width: 40%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #welcome .image-container img {
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #E7DFAE;
-        }
-
-        #welcome .text-container {
-            width: 50%;
-            text-align: left;
-        }
-
-        #welcome h1 {
-            font-size: 3.5em;
-            color: #FFFFFF;
-            margin-bottom: 20px;
-        }
-
-        #welcome h2 {
-            font-size: 2em;
-            color: #E7DFAE;
-            margin-bottom: 20px;
-        }
-
-        #welcome p {
-            font-size: 1.2em;
-            color: #FFFFFF;
-            line-height: 1.5;
-        }
-
-        .carousel {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .carousel-slide img {
-            max-width: 80%;
-            max-height: 70%;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #E7DFAE;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .carousel-btn.prev {
-            left: 10px;
-        }
-
-        .carousel-btn.next {
-            right: 10px;
-        }
-
-        .arrow {
-            position: absolute;
-            width: 100%;
-            height: 80px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .arrow.down {
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
-        }
-
-        .arrow.up {
-            top: 0;
-            background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
-        }
-
-        .arrow span {
-            color: #FFFFFF;
-            font-size: 2rem;
-        }
-
-        /* Section de contact */
-        #contact {
-            text-align: center;
-            padding: 50px;
-            color: #FFFFFF;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px; /* Increased gap between the title and rows */
-        }
-
-        #contact h1 {
-            font-size: 3.2em; /* Bigger font for the title */
-            margin-bottom: 150px; /* Increased space between title and rows */
-            color: #E7DFAE; /* Light yellow color for the title */
-        }
-
-        /* Contact row layout */
-        .contact-row {
-            display: flex;
-            justify-content: space-between;
-            width: 100%; /* Use full width for symmetry */
-            max-width: 800px; /* Limit width to keep it centered */
-            margin: 0 auto; /* Center the entire row */
-            padding: 0 40px; /* Add padding for symmetry */
-        }
-
-        /* LinkedIn row */
-        .linkedin-row {
-            margin-top: 30px; /* Adjust space between second and third row */
-            width: 100%; /* Full width for LinkedIn */
-            display: flex;
-            justify-content: center; /* Center LinkedIn item */
-        }
-
-        /* Contact links styling */
-        .contact-item {
-            display: flex;
-            flex-direction: column; /* Align icon and text vertically */
-            align-items: center; /* Center icon and text horizontally */
-            gap: 10px; /* Space between icon and text */
-            flex: 1; /* Allow items to grow equally */
-            max-width: 250px; /* Set a max width for the items */
-        }
-
-        .contact-item a {
-            color: #FFFFFF;
-            text-decoration: none;
-            font-size: 1.5em; /* Adjust font size of contact links */
-        }
-
-        .contact-item a:hover {
-            color: #E7DFAE;
-        }
-
-        /* Icon styling */
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-        }
-
-        /* Adjust arrow style */
-        .arrow {
-            margin-top: 30px;
         }
 
         .stars-container {
@@ -240,7 +31,7 @@
 
         .star {
             position: absolute;
-            background-color: #111F92; /* Color of the stars */
+            background-color: white; /* Color of the stars */
             width: 2px; /* Thin lines */
             height: 10px; /* Length of the lines */
             border-radius: 0; /* No rounded edges */
@@ -254,6 +45,122 @@
             }
             100% {
                 transform: translateY(100vh);
+            }
+        }
+
+        /* General container styles */
+        .container {
+            scroll-snap-type: y mandatory;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 20px; /* Add padding for mobile */
+        }
+
+        section {
+            height: auto; /* Allow sections to expand based on content */
+            display: flex;
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            scroll-snap-align: start;
+            position: relative;
+            margin: 20px 0; /* Add margin for separation */
+        }
+
+        #welcome .content {
+            display: flex;
+            flex-direction: column; /* Stack image and text vertically */
+            align-items: center; /* Center content */
+            width: 100%; /* Full width for mobile */
+        }
+
+        #welcome .image-container img {
+            width: 80%; /* Responsive image width */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 350px; /* Max width for larger screens */
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #E7DFAE;
+        }
+
+        /* Responsive styles for contact */
+        #contact {
+            text-align: center;
+        }
+
+        #contact h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px; /* Increased margin */
+            color: #E7DFAE; /* Use light yellow color */
+        }
+
+        /* Table layout for contact items */
+        .contact-table {
+            margin: 0 auto;
+            width: 80%; /* Adjust width for mobile */
+            text-align: center;
+        }
+
+        .contact-table td {
+            padding: 20px;
+        }
+
+        .contact-table a {
+            color: #E7DFAE;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .contact-table a:hover {
+            color: #FFFFFF;
+        }
+
+        .contact-linkedin a {
+            color: #E7DFAE;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+
+        .contact-linkedin a:hover {
+            color: #FFFFFF;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) { /* Tablet and mobile */
+            #contact h1 {
+                font-size: 2em; /* Smaller font for smaller screens */
+            }
+
+            .contact-table {
+                width: 100%; /* Full width on smaller screens */
+            }
+
+            .contact-table td {
+                padding: 15px; /* Reduce padding */
+                width: 50%; /* Each column takes half */
+            }
+        }
+
+        @media (max-width: 480px) { /* Mobile */
+            #contact h1 {
+                font-size: 1.8em; /* Further reduce font size */
+            }
+
+            .contact-table td {
+                padding: 10px; /* Reduce padding */
+                display: flex; /* Use flexbox for center alignment */
+                justify-content: center;
+                align-items: center;
+                flex-direction: column; /* Stack icon and text */
+            }
+
+            .contact-table .icon {
+                margin-bottom: 5px; /* Space between icon and text */
+            }
+
+            .contact-table a {
+                font-size: 1em; /* Smaller font size */
             }
         }
 
