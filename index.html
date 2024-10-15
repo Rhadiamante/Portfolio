@@ -253,6 +253,8 @@
 </head>
 
 <body>
+    <div class="stars-container"></div> <!-- Container for stars -->
+
     <div class="container">
         <!-- Section 1 : Bienvenue -->
         <section id="welcome">
@@ -375,6 +377,29 @@
                 setTimeout(() => { isScrolling = false; }, 1000);
             }
         }
+    </script>
+
+    <script>
+        // Function to create falling stars
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            
+            // Randomize the position and animation duration
+            star.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+            star.style.animationDuration = Math.random() * 2 + 3 + 's'; // Random duration (3s to 5s)
+
+            // Append the star to the stars container
+            document.querySelector('.stars-container').appendChild(star);
+
+            // Remove star after animation ends
+            star.addEventListener('animationend', () => {
+                star.remove();
+            });
+        }
+
+        // Create stars at intervals
+        setInterval(createStar, 100); // Create a new star every 100ms
     </script>
 </body>
 
