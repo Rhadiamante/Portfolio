@@ -304,32 +304,33 @@
 
         <!-- Section 2 : Carrousel de Projets -->
         <section id="carousel">
+             <!-- Conteneur du carrousel -->
             <div class="carousel">
-                <button class="carousel-btn prev">&#10094;</button>
-                <div class="carousel-track">
-                    <div class="carousel-slide">
-                        <h2>Projet 1</h2>
-                        <a href="projet1.html">
-                            <img src="https://via.placeholder.com/400x300" alt="Projet 1">
-                            <p>Découvrez mon projet 1</p>
-                        </a>
-                    </div>
-                    <div class="carousel-slide">
-                        <h2>Projet 2</h2>
-                        <a href="projet2.html">
-                            <img src="https://via.placeholder.com/400x300" alt="Projet 2">
-                            <p>Découvrez mon projet 2</p>
-                        </a>
-                    </div>
-                    <div class="carousel-slide">
-                        <h2>Projet 3</h2>
-                        <a href="projet3.html">
-                            <img src="https://via.placeholder.com/400x300" alt="Projet 3">
-                            <p>Découvrez mon projet 3</p>
-                        </a>
-                    </div>
+                <!-- Diapositive 1 -->
+                <div class="carousel-slide active">
+                    <a href="projet1.html">
+                        <img src="https://via.placeholder.com/1920x1080/111F29/E7DFAE?text=Projet+1" alt="Projet 1">
+                    </a>
+                    <h2>Titre du Projet 1</h2>
                 </div>
-                <button class="carousel-btn next">&#10095;</button>
+                <!-- Diapositive 2 -->
+                <div class="carousel-slide inactive">
+                    <a href="projet2.html">
+                        <img src="https://via.placeholder.com/1920x1080/111F29/E7DFAE?text=Projet+2" alt="Projet 2">
+                    </a>
+                    <h2>Titre du Projet 2</h2>
+                </div>
+                <!-- Diapositive 3 -->
+                <div class="carousel-slide inactive">
+                    <a href="projet3.html">
+                        <img src="https://via.placeholder.com/1920x1080/111F29/E7DFAE?text=Projet+3" alt="Projet 3">
+                    </a>
+                    <h2>Titre du Projet 3</h2>
+                </div>
+
+                <!-- Boutons de navigation -->
+                <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+                <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
             </div>
             <div class="arrow up" onclick="scrollToPrevious()">
                 <span>&#x25B2;</span>
