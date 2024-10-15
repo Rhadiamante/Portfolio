@@ -174,25 +174,25 @@
             margin-bottom: 30px;
         }
 
-        /* Container for contact items */
+        /* Flexbox layout for contact items */
         .contact-container {
             display: flex;
             flex-direction: column;  /* Arrange items vertically */
             align-items: center;  /* Center items */
-            gap: 30px; /* Space between contact items */
+            gap: 40px; /* Space between each contact item */
         }
 
         .contact-item {
-            text-align: center;
             display: flex;
-            flex-direction: column;
+            flex-direction: column;  /* Stack icon and link vertically */
             align-items: center;
+            gap: 10px; /* Space between icon and text */
         }
 
         .contact-item a {
             color: #E7DFAE;
             text-decoration: none;
-            font-size: 1.2em;
+            font-size: 1.4em;
         }
 
         .contact-item a:hover {
@@ -200,9 +200,8 @@
         }
 
         .contact-icon {
-            width: 50px; /* Adjust icon size */
+            width: 50px;
             height: 50px;
-            margin-bottom: 10px; /* Space between icon and text */
         }
 
     </style>
@@ -279,7 +278,7 @@
                     <a href="mailto:example@example.com">example@example.com</a>
                 </div>
                 <div class="contact-item">
-                    <img src="https://img.icons8.com/ios-filled/50/0000FF/linkedin.png" alt="LinkedIn" class="contact-icon">
+                    <img src="https://img.icons8.com/ios-filled/50/0A66C2/linkedin.png" alt="LinkedIn" class="contact-icon">
                     <a href="https://linkedin.com/in/example" target="_blank">Mon Profil LinkedIn</a>
                 </div>
             </div>
