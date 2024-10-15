@@ -174,53 +174,51 @@
         }
 
         #contact h1 {
-            font-size: 2.5em;
-            margin-bottom: 30px;
+            font-size: 3.2em; /* Bigger font for the title */
+            margin-bottom: 50px; /* Increase space between title and rows */
+            color: #E7DFAE; /* Light yellow color for the title */
         }
 
-        /* Flexbox layout for the rows */
-        .row {
+        /* Contact row layout */
+        .contact-row {
             display: flex;
             justify-content: center;
-            gap: 50px; /* Space between the two columns in the second row */
-            align-items: center;
+            gap: 100px; /* Add space between phone and email */
+            margin-bottom: 40px; /* Increase space between second and third row */
         }
 
+        /* LinkedIn row */
         .linkedin-row {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin-top: 40px; /* Space between row 2 and LinkedIn */
+            margin-top: 40px; /* More space between email/phone and LinkedIn row */
         }
 
-        /* Columns for phone and email */
-        .column {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+        /* Contact links styling */
+        .contact-item {
+            text-align: center;
         }
 
         .contact-item a {
             color: #E7DFAE;
             text-decoration: none;
-            font-size: 1.4em;
+            font-size: 1.5em; /* Adjust font size of contact links */
         }
 
         .contact-item a:hover {
             color: #FFFFFF;
         }
 
+        /* Icon styling */
         .contact-icon {
             width: 50px;
             height: 50px;
+            margin-bottom: 10px;
         }
 
         /* Adjust arrow style */
         .arrow {
             margin-top: 30px;
         }
+
 
     </style>
 </head>
@@ -286,18 +284,22 @@
         <section id="contact">
             <h1>Me Contacter</h1>
         
-            <div class="row">
-                <div class="column">
+            <div class="contact-row">
+                <!-- Phone section -->
+                <div class="contact-item">
                     <img src="https://img.icons8.com/ios-filled/50/FF0000/phone.png" alt="Téléphone" class="contact-icon">
                     <a href="tel:+1234567890">+123 456 7890</a>
                 </div>
-                <div class="column">
+                
+                <!-- Email section -->
+                <div class="contact-item">
                     <img src="https://img.icons8.com/ios-filled/50/FFFFFF/email.png" alt="Email" class="contact-icon">
                     <a href="mailto:example@example.com">example@example.com</a>
                 </div>
             </div>
         
-            <div class="row linkedin-row">
+            <!-- LinkedIn section -->
+            <div class="contact-row linkedin-row">
                 <img src="https://img.icons8.com/ios-filled/50/0000FF/linkedin.png" alt="LinkedIn" class="contact-icon">
                 <a href="https://linkedin.com/in/example" target="_blank">Mon Profil LinkedIn</a>
             </div>
@@ -306,6 +308,7 @@
                 <span>&#x25B2;</span>
             </div>
         </section>
+        
     </div>
 
     <script>
