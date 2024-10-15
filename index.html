@@ -182,9 +182,11 @@
         /* Contact row layout */
         .contact-row {
             display: flex;
-            justify-content: center;
-            gap: 80px; /* Space between phone and email columns */
-            margin-bottom: 30px; /* Adjust space between second and third row */
+            justify-content: space-between;
+            width: 100%; /* Use full width for symmetry */
+            max-width: 800px; /* Limit width to keep it centered */
+            margin: 0 auto; /* Center the entire row */
+            padding: 0 40px; /* Add padding for symmetry */
         }
 
         /* LinkedIn row */
@@ -195,8 +197,11 @@
         /* Contact links styling */
         .contact-item {
             display: flex;
-            align-items: center; /* Align icon and text vertically centered */
-            gap: 10px; /* Reduce space between icon and text */
+            flex-direction: column; /* Align icon and text vertically */
+            align-items: center; /* Center icon and text horizontally */
+            gap: 10px; /* Space between icon and text */
+            flex: 1; /* Allow items to grow equally */
+            max-width: 250px; /* Set a max width for the items */
         }
 
         .contact-item a {
