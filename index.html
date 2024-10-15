@@ -170,12 +170,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 30px;
+            gap: 30px; /* Increased gap between the title and rows */
         }
 
         #contact h1 {
             font-size: 3.2em; /* Bigger font for the title */
-            margin-bottom: 50px; /* Increase space between title and rows */
+            margin-bottom: 40px; /* Increased space between title and rows */
             color: #E7DFAE; /* Light yellow color for the title */
         }
 
@@ -183,18 +183,20 @@
         .contact-row {
             display: flex;
             justify-content: center;
-            gap: 100px; /* Add space between phone and email */
-            margin-bottom: 40px; /* Increase space between second and third row */
+            gap: 50px; /* Space between phone and email columns */
+            margin-bottom: 30px; /* Adjust space between second and third row */
         }
 
         /* LinkedIn row */
         .linkedin-row {
-            margin-top: 40px; /* More space between email/phone and LinkedIn row */
+            margin-top: 30px; /* Adjust space between second and third row */
         }
 
         /* Contact links styling */
         .contact-item {
-            text-align: center;
+            display: flex;
+            align-items: center; /* Align icon and text vertically centered */
+            gap: 10px; /* Reduce space between icon and text */
         }
 
         .contact-item a {
@@ -211,7 +213,6 @@
         .contact-icon {
             width: 50px;
             height: 50px;
-            margin-bottom: 10px;
         }
 
         /* Adjust arrow style */
@@ -300,14 +301,17 @@
         
             <!-- LinkedIn section -->
             <div class="contact-row linkedin-row">
-                <img src="https://img.icons8.com/ios-filled/50/0000FF/linkedin.png" alt="LinkedIn" class="contact-icon">
-                <a href="https://linkedin.com/in/example" target="_blank">Mon Profil LinkedIn</a>
+                <div class="contact-item">
+                    <img src="https://img.icons8.com/ios-filled/50/0000FF/linkedin.png" alt="LinkedIn" class="contact-icon">
+                    <a href="https://linkedin.com/in/example" target="_blank">Mon Profil LinkedIn</a>
+                </div>
             </div>
         
             <div class="arrow up" onclick="scrollToPrevious()">
                 <span>&#x25B2;</span>
             </div>
         </section>
+        
         
     </div>
 
