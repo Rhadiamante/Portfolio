@@ -230,12 +230,20 @@
             margin-top: 30px;
         }
 
+        .stars-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Prevent stars from interfering with clicks */
+            overflow: hidden; /* Prevent overflow of stars */
+        }
+
         .star {
             position: absolute;
-            background-color: #E7DFAE; /* Color of the stars */
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
+            background-color: white; /* Color of the stars */
+            width: 2px; /* Thin lines */
+            height: 10px; /* Length of the lines */
+            border-radius: 0; /* No rounded edges */
             opacity: 0.8;
             animation: fall linear infinite;
         }
