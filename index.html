@@ -165,48 +165,40 @@
         /* Section de contact */
         #contact {
             text-align: center;
+            padding: 50px;
         }
 
         #contact h1 {
             font-size: 2.5em;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             color: #FFFFFF;
         }
 
-        /* Table layout for contact items */
+        /* Structure pour la section contact */
         .contact-table {
-            margin: 0 auto;
-            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            margin: 0 40px;
             text-align: center;
         }
 
-        .contact-table td {
-            padding: 20px;
-        }
-
-        .contact-table a {
-            color: #E7DFAE;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
-
-        .contact-table a:hover {
-            color: #FFFFFF;
-        }
-
-        .contact-table .icon {
-            font-size: 2.5em;
+        .contact-icon {
+            width: 50px;
             margin-bottom: 10px;
         }
 
-        .contact-linkedin a {
-            color: #E7DFAE;
-            text-decoration: none;
-            font-size: 1.5em;
-        }
-
-        .contact-linkedin a:hover {
-            color: #FFFFFF;
+        .linkedin {
+            margin-top: 20px;
         }
 
     </style>
@@ -272,28 +264,32 @@
         <!-- Section 3 : Contact -->
         <section id="contact">
             <h1>Me Contacter</h1>
-
-            <!-- Table layout for contact details -->
-            <table class="contact-table">
-                <tr>
-                    <td>
-                        <div class="icon">✉️</div>
-                        <a href="mailto:example@example.com">example@example.com</a>
-                    </td>
-                    <td>
-                        <div class="icon">📞</div>
-                        <a href="tel:+1234567890">+123 456 7890</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align:center;">
-                        <div class="contact-linkedin">
-                            <a href="https://www.linkedin.com/in/example" target="_blank">Mon Profil LinkedIn</a>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-
+        
+            <div class="contact-table">
+                <div class="contact-row">
+                    <div class="contact-item">
+                        <a href="tel:+1234567890">
+                            <img src="phone-icon.png" alt="Phone Icon" class="contact-icon" />
+                            +123 456 7890
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <a href="mailto:example@example.com">
+                            <img src="email-icon.png" alt="Email Icon" class="contact-icon" />
+                            example@example.com
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div class="contact-item linkedin">
+                        <a href="https://linkedin.com/in/example" target="_blank">
+                            <img src="linkedin-icon.png" alt="LinkedIn Icon" class="contact-icon" />
+                            Mon Profil LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
             <div class="arrow up" onclick="scrollToPrevious()">
                 <span>&#x25B2;</span>
             </div>
