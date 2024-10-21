@@ -58,6 +58,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 2;
         }
 
         #welcome .image-container img {
@@ -101,6 +102,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 2;
         }
 
         /* Active slide */
@@ -112,7 +114,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 1;
+            z-index: 2;
         }
 
         .carousel-slide.active {
@@ -127,7 +129,7 @@
             width: 15%;
             height: 70%; /* Smaller height for inactive slides */
             opacity: 0.5;
-            z-index: 1;
+            z-index: 2;
             transform: scale(0.8); /* Shrink inactive slides */
         }
 
@@ -187,6 +189,7 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
+            z-index: 2;
             transition: background 0.3s ease;
         }
 
@@ -213,6 +216,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            z-index: 2;
             gap: 30px; /* Increased gap between the title and rows */
         }
 
@@ -248,6 +252,7 @@
             gap: 10px; /* Space between icon and text */
             flex: 1; /* Allow items to grow equally */
             max-width: 250px; /* Set a max width for the items */
+            z-index: 2;
         }
 
         .contact-item a {
@@ -264,6 +269,7 @@
         .contact-icon {
             width: 50px;
             height: 50px;
+            z-index: 2;
         }
 
         /* Adjust arrow style */
@@ -416,7 +422,7 @@
         }
 
         // Create stars at intervals
-        setInterval(createStar, 500); // Create a new star every 100ms
+        setInterval(createStar, Math.random() * 1 + 0.5 + 's'); // Create a new star every 100ms
 
         const sections = document.querySelectorAll('section');
         let currentSection = 0;
